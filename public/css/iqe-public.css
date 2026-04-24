@@ -1,0 +1,187 @@
+.instant-quote-estimator {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 20px auto;
+    font-family: var(--iqe-font-family, system-ui, -apple-system, sans-serif);
+    background-color: var(--iqe-bg-color, #f0f0f1);
+    color: var(--iqe-text-color, #3c434a);
+    border-radius: var(--iqe-border-radius, 8px);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.instant-quote-estimator *, .instant-quote-estimator *::before, .instant-quote-estimator *::after {
+    box-sizing: border-box;
+}
+
+.iqe-container {
+    max-width: var(--iqe-max-width, 600px);
+    margin: 0 auto;
+    background: var(--iqe-form-bg-color, #ffffff);
+    padding: 30px;
+    border-radius: var(--iqe-border-radius, 8px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.iqe-title {
+    font-size: var(--iqe-heading-size, 24px);
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--iqe-primary-color, #0073aa);
+}
+
+.iqe-form-group {
+    margin-bottom: 20px;
+}
+
+.iqe-form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: var(--iqe-body-size, 16px);
+}
+
+.iqe-form-group select, 
+.iqe-form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--iqe-border-color, #ccd0d4);
+    border-radius: var(--iqe-border-radius, 8px);
+    font-size: var(--iqe-body-size, 16px);
+    font-family: inherit;
+    background-color: var(--iqe-form-bg-color, #ffffff);
+    color: var(--iqe-text-color, #3c434a);
+    transition: border-color 0.3s;
+}
+
+.iqe-form-group select:focus, 
+.iqe-form-group input:focus {
+    outline: none;
+    border-color: var(--iqe-primary-color, #0073aa);
+}
+
+.iqe-hidden {
+    display: none !important;
+}
+
+.iqe-results {
+    background-color: var(--iqe-bg-color, #f0f0f1);
+    padding: 20px;
+    border-radius: var(--iqe-border-radius, 8px);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--iqe-primary-color, #0073aa);
+}
+
+.iqe-results-title {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.iqe-results p {
+    margin: 5px 0;
+    font-size: var(--iqe-body-size, 16px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.iqe-total-ex {
+    font-weight: 600;
+}
+
+.iqe-total-inc {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--iqe-primary-color, #0073aa);
+    margin-top: 10px !important;
+    padding-top: 10px;
+    border-top: 1px solid var(--iqe-border-color, #ccd0d4);
+}
+
+.iqe-disclaimer {
+    font-size: 0.85em;
+    opacity: 0.8;
+    margin-top: 15px !important;
+    display: block !important;
+    text-align: center;
+}
+
+.iqe-lead-capture {
+    border-top: 1px solid var(--iqe-border-color, #ccd0d4);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.iqe-lead-capture h3 {
+    font-size: calc(var(--iqe-heading-size, 24px) * 0.8);
+    margin-bottom: 15px;
+}
+
+.iqe-submit-btn {
+    width: 100%;
+    background-color: var(--iqe-primary-color, #0073aa);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: var(--iqe-body-size, 16px);
+    font-weight: 600;
+    border-radius: var(--iqe-border-radius, 8px);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.iqe-submit-btn:hover {
+    background-color: var(--iqe-secondary-color, #2271b1);
+}
+
+.iqe-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.iqe-message {
+    padding: 15px;
+    border-radius: var(--iqe-border-radius, 8px);
+    margin-top: 20px;
+    display: none;
+}
+
+.iqe-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.iqe-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* Spinner */
+.iqe-spinner {
+    display: none;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top: 3px solid #fff;
+    width: 20px;
+    height: 20px;
+    animation: iqe-spin 1s linear infinite;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.iqe-loading .iqe-spinner {
+    display: inline-block;
+}
+
+@keyframes iqe-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
