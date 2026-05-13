@@ -3,7 +3,8 @@
  * Plugin Name:       Instant Quote Estimator with Lead Capture
  * Description:       A custom calculator and lead capture form for estimating quotes.
  * Version:           1.0.0
- * Author:            Your Name
+ * Author:            Zainab Salman
+ * Author URI:        https://github.com/ZainabSalman612
  * Text Domain:       instant-quote-estimator
  */
 
