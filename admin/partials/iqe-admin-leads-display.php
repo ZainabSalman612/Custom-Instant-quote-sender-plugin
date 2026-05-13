@@ -7,6 +7,13 @@ if ( ! current_user_can( 'manage_options' ) ) {
 global $wpdb;
 $table_name = $wpdb->prefix . 'iqe_leads';
 
+// Handle deletion
+if ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' && isset( $_GET['lead_id'] ) ) {
+    check_admin_referer( 'delete_lead_' . $_GET['lead_id'] );
+    $wpdb->delete( $table_name, array( 'id' => intval( $_GET['lead_id'] ) ) );
+    echo '<div class="notice notice-success is-dismissible"><p>Lead deleted successfully.</p></div>';
+}
+
 // Verify table exists before querying
 if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
     echo '<div class="wrap"><h1>Quote Leads</h1><p>Database table not initialized yet. Deactivate and reactivate the plugin to create the necessary tables.</p></div>';
@@ -75,7 +82,12 @@ $results = $wpdb->get_results( "SELECT * FROM $table_name ORDER BY {$orderby} {$
                             Ex VAT: £<?php echo esc_html($totals['ex_vat']); ?><br>
                             Inc VAT: £<?php echo esc_html($totals['inc_vat']); ?>
                         </td>
-                        <td data-colname="Date Submitted"><?php echo esc_html(date('Y-m-d H:i:s', strtotime($row->created_at))); ?></td>
+                        <td data-colname="Date Submitted">
+                            <?php echo esc_html(date('Y-m-d H:i:s', strtotime($row->created_at))); ?>
+                            <div class="row-actions">
+                                <span class="delete"><a href="<?php echo wp_nonce_url( '?page=iqe_leads&action=delete&lead_id=' . $row->id, 'delete_lead_' . $row->id ); ?>" onclick="return confirm('Are you sure you want to delete this lead?');" style="color: #b32d2e;">Delete</a></span>
+                            </div>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
