@@ -54,14 +54,6 @@ class Iqe_Public {
                         </select>
                     </div>
 
-                    <div class="iqe-form-group" id="iqe_patio_material_group">
-                        <label for="iqe_patio_material">Material Type</label>
-                        <select id="iqe_patio_material" name="patio_material">
-                            <option value="natural_stone">Natural Stone</option>
-                            <option value="porcelain">Porcelain</option>
-                        </select>
-                    </div>
-
                     <div class="iqe-form-group iqe-hidden" id="iqe_garden_level_group">
                         <label for="iqe_garden_level">Renovation Level</label>
                         <select id="iqe_garden_level" name="garden_level">
@@ -150,9 +142,7 @@ class Iqe_Public {
             'manholes' => $manholes,
             'poor_access' => $poor_access
         );
-        if ($service === 'patio') {
-            $inputs['material'] = sanitize_text_field($_POST['patio_material']);
-        } elseif ($service === 'garden_renovation') {
+        if ($service === 'garden_renovation') {
             $inputs['level'] = sanitize_text_field($_POST['garden_level']);
         }
 

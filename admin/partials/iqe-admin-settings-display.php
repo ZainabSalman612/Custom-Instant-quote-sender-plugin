@@ -30,27 +30,23 @@ settings_errors( 'iqe_messages' );
             <table class="form-table">
                 <tr>
                     <th scope="row">Driveway Base Price</th>
-                    <td><input type="number" name="iqe_pricing_options[driveway_base]" value="<?php echo isset($pricing_opts['driveway_base']) ? esc_attr($pricing_opts['driveway_base']) : '50'; ?>" class="regular-text"></td>
+                    <td><input type="number" name="iqe_pricing_options[driveway_base]" value="<?php echo isset($pricing_opts['driveway_base']) ? esc_attr($pricing_opts['driveway_base']) : '190'; ?>" class="regular-text"></td>
                 </tr>
                 <tr>
-                    <th scope="row">Patio - Natural Stone Base Price</th>
-                    <td><input type="number" name="iqe_pricing_options[patio_natural]" value="<?php echo isset($pricing_opts['patio_natural']) ? esc_attr($pricing_opts['patio_natural']) : '70'; ?>" class="regular-text"></td>
-                </tr>
-                <tr>
-                    <th scope="row">Patio - Porcelain Multiplier (%)</th>
-                    <td><input type="number" name="iqe_pricing_options[patio_porcelain_mult]" value="<?php echo isset($pricing_opts['patio_porcelain_mult']) ? esc_attr($pricing_opts['patio_porcelain_mult']) : '15'; ?>" class="regular-text"> <p class="description">Added to the natural stone price (e.g. 15 for 15%)</p></td>
+                    <th scope="row">Patio Base Price</th>
+                    <td><input type="number" name="iqe_pricing_options[patio_base]" value="<?php echo isset($pricing_opts['patio_base']) ? esc_attr($pricing_opts['patio_base']) : '180'; ?>" class="regular-text"></td>
                 </tr>
                 <tr>
                     <th scope="row">Garden Renovation - Basic Refresh</th>
-                    <td><input type="number" name="iqe_pricing_options[garden_basic]" value="<?php echo isset($pricing_opts['garden_basic']) ? esc_attr($pricing_opts['garden_basic']) : '40'; ?>" class="regular-text"></td>
+                    <td><input type="number" name="iqe_pricing_options[garden_basic]" value="<?php echo isset($pricing_opts['garden_basic']) ? esc_attr($pricing_opts['garden_basic']) : '110'; ?>" class="regular-text"></td>
                 </tr>
                 <tr>
                     <th scope="row">Garden Renovation - Full Renovation</th>
-                    <td><input type="number" name="iqe_pricing_options[garden_full]" value="<?php echo isset($pricing_opts['garden_full']) ? esc_attr($pricing_opts['garden_full']) : '90'; ?>" class="regular-text"></td>
+                    <td><input type="number" name="iqe_pricing_options[garden_full]" value="<?php echo isset($pricing_opts['garden_full']) ? esc_attr($pricing_opts['garden_full']) : '250'; ?>" class="regular-text"></td>
                 </tr>
                 <tr>
                     <th scope="row">Garden Renovation - High End</th>
-                    <td><input type="number" name="iqe_pricing_options[garden_high]" value="<?php echo isset($pricing_opts['garden_high']) ? esc_attr($pricing_opts['garden_high']) : '150'; ?>" class="regular-text"></td>
+                    <td><input type="number" name="iqe_pricing_options[garden_high]" value="<?php echo isset($pricing_opts['garden_high']) ? esc_attr($pricing_opts['garden_high']) : '400'; ?>" class="regular-text"></td>
                 </tr>
                 <tr>
                     <th scope="row">Manhole Charge (Flat rate per manhole)</th>
