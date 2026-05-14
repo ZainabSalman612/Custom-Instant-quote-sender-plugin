@@ -74,7 +74,7 @@ class Iqe_Admin {
         
         $output = fopen( 'php://output', 'w' );
         
-        fputcsv( $output, array( 'ID', 'Name', 'Email', 'Phone', 'Service Type', 'Area', 'Manholes', 'Poor Access', 'Material/Level', 'Total (Ex VAT)', 'Total (Inc VAT)', 'Date Submitted' ) );
+        fputcsv( $output, array( 'ID', 'Name', 'Email', 'Phone', 'Service Type', 'Area', 'Manholes', 'Poor Access', 'Material/Level', 'Description', 'Total (Ex VAT)', 'Total (Inc VAT)', 'Date Submitted' ) );
         
         if ( !empty($results) ) {
             foreach ( $results as $row ) {
@@ -95,6 +95,7 @@ class Iqe_Admin {
                     $inputs['manholes'] ?? '',
                     $inputs['poor_access'] ?? '',
                     $material_level,
+                    $inputs['description'] ?? '',
                     $totals['ex_vat'] ?? '',
                     $totals['inc_vat'] ?? '',
                     $row['created_at']

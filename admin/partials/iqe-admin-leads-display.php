@@ -68,6 +68,7 @@ $results = $wpdb->get_results( "SELECT * FROM $table_name ORDER BY {$orderby} {$
                     $options_html = "Area: {$inputs['area']} m²<br>Manholes: {$inputs['manholes']}<br>Poor Access: " . ucfirst($inputs['poor_access']);
                     if (isset($inputs['material'])) $options_html .= "<br>Material: " . ucwords(str_replace('_', ' ', $inputs['material']));
                     if (isset($inputs['level'])) $options_html .= "<br>Level: " . ucwords(str_replace('_', ' ', $inputs['level']));
+                    if (!empty($inputs['description'])) $options_html .= "<br><br><strong>Description:</strong><br>" . nl2br(esc_html($inputs['description']));
                 ?>
                     <tr>
                         <td class="column-primary" data-colname="ID">#<?php echo esc_html($row->id); ?></td>

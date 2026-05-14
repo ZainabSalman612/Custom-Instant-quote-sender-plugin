@@ -81,13 +81,6 @@ class Iqe_Public {
                         </select>
                     </div>
 
-                    <div class="iqe-results">
-                        <div class="iqe-results-title">Estimated Cost</div>
-                        <p><span>Total (ex VAT)</span> <span id="iqe_calc_ex_vat" class="iqe-total-ex">£0.00</span></p>
-                        <p><span>Total (inc VAT)</span> <span id="iqe_calc_inc_vat" class="iqe-total-inc">£0.00</span></p>
-                        <p class="iqe-disclaimer">This is a guide price only. Final quotation depends on access, waste removal, levels, drainage, and material choice.</p>
-                    </div>
-
                     <div class="iqe-lead-capture">
                         <h3>Get your quote via email</h3>
                         <div class="iqe-form-group">
@@ -101,6 +94,10 @@ class Iqe_Public {
                         <div class="iqe-form-group">
                             <label for="iqe_phone">Phone</label>
                             <input type="tel" id="iqe_phone" name="phone_number" required>
+                        </div>
+                        <div class="iqe-form-group">
+                            <label for="iqe_description">Brief description of what you are looking for</label>
+                            <textarea id="iqe_description" name="description" rows="4" style="width: 100%; padding: 12px; border: 1px solid var(--iqe-border-color, #ccd0d4); border-radius: var(--iqe-border-radius, 8px); background-color: var(--iqe-form-bg-color, #ffffff); color: var(--iqe-text-color, #3c434a); font-family: inherit; font-size: var(--iqe-body-size, 16px);"></textarea>
                         </div>
 
                         <button type="submit" id="iqe_submit_btn" class="iqe-submit-btn">
@@ -132,6 +129,7 @@ class Iqe_Public {
         $area = floatval($_POST['area']);
         $manholes = intval($_POST['manholes']);
         $poor_access = sanitize_text_field($_POST['poor_access']);
+        $description = sanitize_textarea_field($_POST['description']);
         
         $total_ex = sanitize_text_field($_POST['total_ex_vat']);
         $total_inc = sanitize_text_field($_POST['total_inc_vat']);
@@ -140,7 +138,8 @@ class Iqe_Public {
         $inputs = array(
             'area' => $area,
             'manholes' => $manholes,
-            'poor_access' => $poor_access
+            'poor_access' => $poor_access,
+            'description' => $description
         );
         if ($service === 'garden_renovation') {
             $inputs['level'] = sanitize_text_field($_POST['garden_level']);
@@ -190,6 +189,10 @@ class Iqe_Public {
         $inputs_html = "<ul><li>Area: {$inputs['area']} m²</li><li>Manholes: {$inputs['manholes']}</li><li>Poor Access: " . ucfirst($inputs['poor_access']) . "</li>";
         if (isset($inputs['material'])) $inputs_html .= "<li>Material: " . ucwords(str_replace('_', ' ', $inputs['material'])) . "</li>";
         if (isset($inputs['level'])) $inputs_html .= "<li>Renovation Level: " . ucwords(str_replace('_', ' ', $inputs['level'])) . "</li>";
+        if (!empty($inputs['description'])) {
+            $desc_formatted = nl2br(esc_html($inputs['description']));
+            $inputs_html .= "<li><strong>Description:</strong><br>{$desc_formatted}</li>";
+        }
         $inputs_html .= "</ul>";
 
         $service_formatted = ucwords(str_replace('_', ' ', $service));
