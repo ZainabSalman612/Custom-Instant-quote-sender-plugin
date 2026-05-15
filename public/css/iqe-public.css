@@ -2,7 +2,8 @@
     box-sizing: border-box;
     width: 100%;
     margin: 20px auto;
-    font-family: var(--iqe-font-family, system-ui, -apple-system, sans-serif);
+    font-family: Arial, sans-serif !important;
+    font-size: 16px !important;
     background-color: var(--iqe-bg-color, #f0f0f1);
     color: var(--iqe-text-color, #3c434a);
     border-radius: var(--iqe-border-radius, 8px);
@@ -12,6 +13,11 @@
 
 .instant-quote-estimator *, .instant-quote-estimator *::before, .instant-quote-estimator *::after {
     box-sizing: border-box;
+    font-family: Arial, sans-serif !important;
+}
+
+.instant-quote-estimator p, .instant-quote-estimator label {
+    font-size: 16px !important;
 }
 
 .iqe-container {
@@ -24,12 +30,19 @@
 }
 
 .iqe-title {
-    font-size: var(--iqe-heading-size, 24px);
-    font-weight: 600;
+    font-family: Arial, sans-serif !important;
+    font-size: 42px !important;
+    font-weight: 900 !important;
+    color: #4590b0 !important;
     margin-top: 0;
     margin-bottom: 20px;
     text-align: center;
-    color: var(--iqe-primary-color, #0073aa);
+}
+
+@media (max-width: 768px) {
+    .iqe-title {
+        font-size: 32px !important;
+    }
 }
 
 .iqe-form-group {
@@ -44,13 +57,14 @@
 }
 
 .iqe-form-group select, 
-.iqe-form-group input {
+.iqe-form-group input,
+.iqe-form-group textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid var(--iqe-border-color, #ccd0d4);
     border-radius: var(--iqe-border-radius, 8px);
-    font-size: var(--iqe-body-size, 16px);
-    font-family: inherit;
+    font-size: 16px !important;
+    font-family: Arial, sans-serif !important;
     background-color: var(--iqe-form-bg-color, #ffffff);
     color: var(--iqe-text-color, #3c434a);
     transition: border-color 0.3s;
@@ -127,7 +141,8 @@
     color: #fff;
     border: none;
     padding: 15px;
-    font-size: var(--iqe-body-size, 16px);
+    font-family: Arial, sans-serif !important;
+    font-size: 16px !important;
     font-weight: 600;
     border-radius: var(--iqe-border-radius, 8px);
     cursor: pointer;

@@ -97,7 +97,7 @@ class Iqe_Public {
                         </div>
                         <div class="iqe-form-group">
                             <label for="iqe_description">Brief description of what you are looking for</label>
-                            <textarea id="iqe_description" name="description" rows="4" style="width: 100%; padding: 12px; border: 1px solid var(--iqe-border-color, #ccd0d4); border-radius: var(--iqe-border-radius, 8px); background-color: var(--iqe-form-bg-color, #ffffff); color: var(--iqe-text-color, #3c434a); font-family: inherit; font-size: var(--iqe-body-size, 16px);"></textarea>
+                            <textarea id="iqe_description" name="description" rows="4"></textarea>
                         </div>
 
                         <button type="submit" id="iqe_submit_btn" class="iqe-submit-btn">
