@@ -42,7 +42,7 @@ class Iqe_Public {
         ?>
         <div class="instant-quote-estimator">
             <div class="iqe-container">
-                <h2 class="iqe-title">Instant Quote Estimator</h2>
+                <h2 class="iqe-title">Instant quote estimator</h2>
                 
                 <form id="iqe-quote-form">
                     <div class="iqe-form-group">
